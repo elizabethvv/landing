@@ -1,5 +1,23 @@
 
 /*** Spinner Start ***/
+body {
+    /* Otros estilos para el body aquí */
+}
+
+@media (max-width: 1500px) {
+    .elemento {
+        margin: 30px; /* Mayor margen en pantallas más pequeñas */
+    }
+}
+.contenedor-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Espacio entre elementos flexibles */
+}
+
+
+
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -95,26 +113,48 @@
     background: var(--bs-light);
 }
 
+
 /*** Navbar Start ***/
+
 .nav-bar {
-    background: var(--bs-white);
+  
+    position: fixed; /* Mantener la barra de navegación visible al hacer scroll */
+    top: 0; /* Fijar en la parte superior */
+    width: 100%; /* Ancho completo para que ocupe toda la pantalla */
+   
+    height: 70px; /* Ajusta la altura de la barra de navegación según lo necesites */
+    display: flex; /* Usar flexbox para el contenido interno */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: flex-end; /* Alinear el contenido a la derecha */
+    padding: 0 40px; /* Aumentar el padding a los lados para alejarlos un poco */
+    box-sizing: border-box; /* Incluir padding en el tamaño total */
+    border-top-left-radius: 1px; /* Borde redondeado en la esquina superior izquierda */
+    transition: background 0.3s ease; /* Transición suave para el cambio de color */
 }
 
-.sticky-top {
-    transition: 1s;
+
+
+
+
+
+.navbar-light .navbar-brand img {
+    max-height: 70px; /* Ajustar la altura máxima de la imagen */
+    transition: .5s;
+    margin-right: 20px; /* Mantener margen derecho para separación */
 }
 
 .navbar-light .navbar-nav .nav-link {
     position: relative;
-    margin-right: 25px;
-    padding: 35px 0;
+    margin-right: 25px; /* Ajustar el margen derecho de los enlaces */
+    padding: 10px 15px; /* Ajustar el padding para un mejor ajuste */
     letter-spacing: 1px;
     color: var(--bs-dark);
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 500; /* Asegúrate de que el peso sea consistente */
     outline: none;
     transition: .5s;
 }
+
 
 .sticky-top .navbar-light .navbar-nav .nav-link {
     padding: 20px 0;
@@ -123,16 +163,19 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
+    color: #2c4e89;
+    font-weight: 900;
 }
 
 .navbar-light .navbar-brand img {
-    max-height: 60px;
+    max-height: 300px; /* Altura máxima de la imagen */
     transition: .5s;
+    margin-right: 10px; /* Ajusta este valor para acercar el logo a las letras */
 }
 
 .sticky-top .navbar-light .navbar-brand img {
-    max-height: 50px;
+    max-height: 50px; /* Altura máxima del logo cuando está fijo */
+    margin-right: 5px; /* Mantén el margen para la versión sticky */
 }
 
 .navbar .dropdown-toggle::after {
@@ -160,16 +203,16 @@
 
 @media (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
-    display: block;
-    visibility: hidden;
-    top: 100%;
-    transform: rotateX(-75deg);
-    transform-origin: 0% 0%;
-    border: 0;
-    border-radius: 10px;
-    margin-top: 8px !important;
-    transition: .5s;
-    opacity: 0;
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        border: 0;
+        border-radius: 10px;
+        margin-top: 8px !important;
+        transition: .5s;
+        opacity: 0;
     }
 }
 
@@ -184,14 +227,114 @@
         padding: 12px 0;
     }
 }
-/*** Navbar End ***/
 
-/*** Carousel Hero Header Start ***/
-.header-carousel .header-carousel-item img {
-    object-fit: cover;
+
+/* Estilos de los enlaces de la barra de navegación */
+.navbar-nav .nav-link {
+    position: relative;
+    font-weight: 500; /* Normal */
+    color: #fff; /* Color de texto */
+    padding: 10px 15px; /* Espaciado */
+    display: flex;
+    align-items: center;
+    justify-content:flex-end; /* Centrar contenido */
+    transition: filter 0.3s ease; /* Transición para el filtro */
 }
 
 
+
+/* Añadir el pseudo-elemento para la línea animada (inferior izquierda) */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 9px; /* Ajusta la distancia debajo del texto */
+
+    width: 0; /* Ancho inicial de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #f3d031; /* Color de la línea */
+    transition: width 0.3s ease; /* Transición suave */
+}
+
+
+/* Animación de la línea inferior izquierda al pasar el ratón */
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Ancho hasta la mitad al pasar el ratón */
+
+}
+
+
+
+.social-icons {
+    display: flex; /* Alinea los iconos en fila */
+    align-items: center; /* Centra verticalmente los iconos */
+    gap: 20px; /* Espacio entre los iconos */
+}
+
+/* Animación para los iconos de redes sociales */
+.team-icon {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Tamaño ajustado */
+    height: 50px;
+    border-radius: 50%;
+    background-color: #cfcaca; /* Color de fondo */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Estilos base para los iconos de redes sociales */
+.team-icon.facebook {
+    color: #4267B2; /* Color del icono de Facebook */
+}
+
+.team-icon.tiktok {
+    color: #000; /* Color del icono de TikTok */
+}
+
+.team-icon.instagram {
+    color: #C13584; /* Color del icono de Instagram */
+}
+
+/* Efectos de hover para los iconos de redes sociales */
+.team-icon:hover {
+    transform: translateY(-5px) scale(1.2) rotate(15deg); /* Efecto de movimiento, escala y rotación al pasar el ratón */
+    background-color: rgba(78, 124, 224, 0.7); /* Fondo claro al pasar el ratón */
+    box-shadow: 0 4px 20px rgba(0, 1, 1, 1.1); /* Sombra al pasar el ratón */
+}
+
+/* Icono de mensaje */
+.team-icon.message {
+    color: #000; /* Color del icono de mensaje */
+}
+
+/*** Navbar End ***/
+
+/*** Carousel Hero Header Start ***/
+.header-carousel .header-carousel-item {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* Asegúrate de que el carrusel cubra toda la altura de la pantalla */
+}
+
+/* Asegúrate de que la imagen ocupe todo el espacio del contenedor */
+.header-carousel .header-carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    animation: image-zoom-slide-in 8s ease-in-out infinite;
+    transform-origin: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transición suave para la visibilidad */
+}
+
+/* Asegúrate de que la imagen esté visible cuando sea necesario */
+.header-carousel .header-carousel-item img:nth-child(1) {
+    opacity: 1;
+}
+
+/* Ajustes de altura para el carrusel */
 @media (min-width: 1200px) {
     .header-carousel .header-carousel-item,
     .header-carousel .header-carousel-item img {
@@ -202,10 +345,11 @@
 @media (max-width: 1199px) {
     .header-carousel .header-carousel-item,
     .header-carousel .header-carousel-item img {
-        height: 1200px;
+        height: 100vh; /* Ajuste de altura para pantallas pequeñas */
     }
 }
 
+/* Estilo y animación del botón siguiente */
 .header-carousel .owl-nav .owl-prev {
     display: none;
 }
@@ -214,10 +358,8 @@
     position: absolute;
     width: 60px;
     height: 60px;
-    bottom: -60px;
-    right: 50%;
-    transform: translateY(-50%);
-    margin-right: -60px;
+    bottom: 20px; /* Ajuste para estar dentro del contenedor */
+    right: 20px; /* Ajuste para estar dentro del contenedor */
     border-radius: 60px;
     background: var(--bs-primary);
     color: var(--bs-white);
@@ -227,6 +369,7 @@
     justify-content: center;
     transition: 0.5s;
 }
+
 .header-carousel .owl-nav .owl-next:hover {
     box-shadow: inset 0 0 100px 0 var(--bs-light);
     color: var(--bs-primary);
@@ -247,58 +390,95 @@
 }
 
 @keyframes carousel-next-btn {
-    0%  {margin-top: 35%;}
-    50%  {margin-bottom: 70%;}
-    100% {margin-top: 35%;}
+    0%  { margin-top: 35%; }
+    50% { margin-bottom: 70%; }
+    100% { margin-top: 35%; }
 }
 
+/* Estilo del caption */
 .header-carousel .header-carousel-item .carousel-caption {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .7);
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background: linear-gradient(rgba(2, 79, 179, 0.5), rgba(0, 0, 0, 0)); /* Degradado de azul a transparente */
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    animation: caption-fade-slide 8s ease-in-out infinite;
+    padding: 20px;
+    text-align: center;
 }
 
-.carousel-caption .ticket-form {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
+/* Animación de entrada para la imagen (zoom out y acercamiento) */
+@keyframes image-zoom-slide-in {
+    0% {
+        transform: scale(1.1) translateY(0);
+        opacity: 0;
+    }
+    25% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.1) translateY(0);
+        opacity: 0;
+    }
 }
 
-.header-carousel .header-carousel-item img {
-    animation-name: image-zoom;
-    animation-duration: 10s;
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    transition: 1s;
+/* Animación de entrada para el texto del caption */
+@keyframes caption-fade-slide {
+    0% {
+        transform: translateY(100%) scale(1.2);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10%) scale(1);
+        opacity: 1;
+    }
 }
 
-@keyframes image-zoom {
-    0%  {width: 100%; height: 100%;}
-
-    25% {width: 115%; height: 115%;}
-
-    50% {width: 130%; height: 130%;}
-
-    75% {width: 120%; height: 120%;}
-
-    100% {width: 100%; height: 100%;}
+/* Aplicar la animación al texto del caption */
+.header-carousel .header-carousel-item .carousel-caption h1,
+.header-carousel .header-carousel-item .carousel-caption p {
+    animation: caption-fade-slide 8s ease-in-out infinite;
+    color: var(--bs-light);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
-/*** Carousel Hero Header End ***/
+
+.header-carousel .header-carousel-item .carousel-caption h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.header-carousel .header-carousel-item .carousel-caption p {
+    font-size: 1.8rem;
+}
 
 /*** Single Page Hero Header Start ***/
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/carousel-1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/panel\ sedes.jfif);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 60px 0 60px 0;
+    padding: 60px 0;
     transition: 0.5s;
 }
 
@@ -374,8 +554,24 @@
     position: relative;
     height: 100%;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 50px;
     background: var(--bs-white);
+    z-index: 1;
+}
+.service .service-item {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--bs-white);
+    z-index: 1;
+}
+.service .service-itemE {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--b-white);
     z-index: 1;
 }
 
@@ -428,7 +624,9 @@
 /*** Service End ***/
 
 
-/*** Attractions Start ***/
+
+
+/*** Cursos Academicos ***/
 .attractions {
     position: relative;
     overflow: hidden;
@@ -442,7 +640,7 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/carousel-2.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/carosel-12.png) center center no-repeat;
     background-size: cover;
     z-index: -2;
     animation-name: attraction-image-zoom;
@@ -455,13 +653,9 @@
 
 @keyframes attraction-image-zoom {
     0%  {width: 100%;}
-
     25% {width: 115%;}
-
     50% {width: 130%;}
-
     75% {width: 120%;}
-
     100% {width: 100%;}
 }
 
@@ -473,8 +667,14 @@
 .attractions .attractions-item {
     position: relative;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: transform 0.5s, box-shadow 0.5s; /* Added box-shadow transition */
     z-index: 1;
+    animation: fadeIn 0.5s ease; /* Fade-in effect for each item */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); } /* Start invisible and below */
+    100% { opacity: 1; transform: translateY(0); } /* Fully visible and in place */
 }
 
 .attractions .attractions-item::after {
@@ -485,8 +685,8 @@
     top: 0;
     left: 0;
     border-radius: 10px;
-    background: rgba(0, 0, 0, .7);
-    transition: 0.5s;
+    background: rgba(3, 89, 202, 0.7);
+    transition: height 0.5s;
     z-index: 2;
 }
 
@@ -494,27 +694,33 @@
     height: 100%;
 }
 
-.attractions .attractions-item .attractions-name {
+.attractions .attractions-item:hover {
+    transform: translateY(-10px); /* Slight upward movement on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+}
+
+.attractions .attractions-name {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.8); /* Scale down for smaller font */
     border-radius: 10px;
-    color: var(--bs-white);
-    font-size: 24px;
+    color: #fafafa; /* Color amarillo brillante */
+    font-size: 18px; /* Smaller font size */
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.5s;
+    transition: opacity 0.5s, transform 0.5s; /* Adjusted transition for opacity */
     z-index: 3;
     opacity: 0;
 }
 
 .attractions .attractions-item:hover .attractions-name {
-    opacity: 1;
+    opacity: 1; /* Fade in the name on hover */
+    transform: translate(-50%, -50%) scale(1); /* Restore size on hover */
 }
 
 .attractions-carousel .owl-stage-outer {
@@ -529,12 +735,14 @@
     color: var(--bs-white);
     padding: 6px 35px;
     border-radius: 30px;
-    transition: 0.5s;
+    transition: background 0.5s, color 0.5s, transform 0.3s; /* Added transform transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for buttons */
 }
 
 .attractions .owl-nav .owl-prev:hover {
     background: var(--bs-white);
     color: var(--bs-primary);
+    transform: scale(1.05) rotate(-5deg); /* Scale up and rotate on hover */
 }
 
 .attractions .owl-nav .owl-next {
@@ -545,30 +753,133 @@
     color: var(--bs-white);
     padding: 6px 35px;
     border-radius: 30px;
-    transition: 0.5s;
+    transition: background 0.5s, color 0.5s, transform 0.3s; /* Added transform transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for buttons */
 }
 
 .attractions .owl-nav .owl-next:hover {
     background: var(--bs-white);
     color: var(--bs-primary);
+    transform: scale(1.05) rotate(5deg); /* Scale up and rotate on hover */
 }
-/*** Attractions End ***/
+
+/* Añadido para el efecto de medio círculo */
+.attractions .attractions-item:hover {
+    clip-path: ellipse(80% 70% at 50% 100%); /* Efecto de medio círculo */
+}
+@keyframes colorChange {
+    0% { color: #FFD700; } /* Amarillo */
+    25% { color: #0066ff; } /* Naranja */
+    50% { color: #eeff00; } /* Verde */
+    75% { color: #1E90FF; } /* Azul */
+    100% { color: #FFD700; } /* Regresa al amarillo */
+}
+
+.cursos-academicas {
+    font-size: 3rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-weight: bold;
+    animation: colorChange 4s infinite; /* Cambia el color cada 3 segundos */
+    text-shadow: 0px 1px 0px rgba(252, 252, 252, 0.938); /* Sombra del texto */
+}
+/*** Cursos Academicos ***/
 
 
 /*** Gallery Start ***/
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8); /* Agrega escalado */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* Escala a su tamaño normal */
+    }
+    100% {
+        opacity: 0; /* Desaparece después de mostrar */
+        transform: translateY(-20px); /* Mueve hacia arriba al desaparecer */
+    }
+}
+
+.animate-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Cambia la fuente */
+    font-size: 3rem; /* Ajusta el tamaño según tu diseño */
+    color: #0245c2; /* Cambia el color según tu paleta */
+    display: inline-block;
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+.animate-title span {
+    display: inline-block;
+    animation: fadeIn 5s ease forwards; /* Aplica la animación */
+}
+
+/* Define el retraso para cada letra */
+.animate-title span:nth-child(1) { animation-delay: 0s; }
+.animate-title span:nth-child(2) { animation-delay: 0.1s; }
+.animate-title span:nth-child(3) { animation-delay: 0.2s; }
+.animate-title span:nth-child(4) { animation-delay: 0.3s; }
+.animate-title span:nth-child(5) { animation-delay: 0.4s; }
+.animate-title span:nth-child(6) { animation-delay: 0.5s; }
+.animate-title span:nth-child(7) { animation-delay: 0.6s; }
+.animate-title span:nth-child(8) { animation-delay: 0.7s; }
+.animate-title span:nth-child(9) { animation-delay: 0.8s; }
+.animate-title span:nth-child(10) { animation-delay: 0.9s; }
+.animate-title span:nth-child(11) { animation-delay: 1.0s; }
+.animate-title span:nth-child(12) { animation-delay: 1.1s; }
+.animate-title span:nth-child(13) { animation-delay: 1.2s; }
+.animate-title span:nth-child(14) { animation-delay: 1.3s; }
+.animate-title span:nth-child(15) { animation-delay: 1.4s; }
+.animate-title span:nth-child(16) { animation-delay: 1.5s; }
+.animate-title span:nth-child(17) { animation-delay: 1.6s; }
+.animate-title span:nth-child(18) { animation-delay: 1.7s; }
+.animate-title span:nth-child(19) { animation-delay: 1.8s; }
+.animate-title span:nth-child(20) { animation-delay: 1.9s; }
+
+/* Agregar un bucle infinito a los spans */
+.animate-title span {
+    animation: fadeIn 3.5s ease forwards infinite; /* Aplica la animación en bucle */
+}
+
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px); /* Efecto de deslizamiento */
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
 .gallery .gallery-item {
     position: relative;
     overflow: hidden;
-    height: 100%;
-    border-radius: 10px;
+    height: 80%; /* Hacer las imágenes más pequeñas */
+    border-radius: 25px;
 }
 
 .gallery .gallery-item img {
-    transition: 0.5s;
+    transition: transform 0.5s, filter 0.5s; /* Añadir animación al filtro */
 }
 
 .gallery .gallery-item:hover img {
-    transform: scale(1.2);
+    transform: scale(1.1); /* Aumentar el tamaño al hacer hover */
+    filter: brightness(0.8); /* Oscurecer la imagen al hacer hover */
 }
 
 .gallery .gallery-item::after {
@@ -579,9 +890,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
-    background: rgba(0, 0, 0, .4);
-    transition: 0.5s;
+    border-radius: 30px;
+    background: rgba(94, 93, 93, 0.7); /* Fondo más oscuro y transparente */
+    transition: width 0.5s, height 0.5s; /* Cambiar a transiciones de ancho y alto */
     z-index: 1;
 }
 
@@ -594,16 +905,26 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.5s;
+    transform: translate(-50%, -50%) rotate(900deg); /* Inicialmente sin rotación */
+    transition: opacity 0.5s, transform 0.5s, color 0.5s; /* Añadir transición de color */
     z-index: 5;
     opacity: 0;
+    color: #faf607; /* Color por defecto del icono */
 }
 
 .gallery .gallery-item:hover .search-icon {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2) rotate(360deg); /* Aumentar tamaño y rotar el icono al hacer hover */
+    color: #007bff; /* Cambiar el color del icono al hacer hover */
 }
 /*** Gallery End ***/
+
+
+
+
+
+
+
 
 /*** Blog Start ***/
 .blog .blog-item {
@@ -728,12 +1049,11 @@
 
 .testimonial::after {
     content: "";
-    width: 100%;
+    width: 10%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url(../img/carousel-1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -746,6 +1066,18 @@
     transition: 1s;
 }
 
+@keyframes image-zoom {
+    0% {
+        background-size: 110%;
+    }
+    50% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 110%;
+    }
+}
+
 .testimonial::before {
     content: "";
     width: 100%;
@@ -753,7 +1085,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, .7);
     z-index: -1;
 }
 
@@ -761,9 +1092,21 @@
     text-align: center;
     border-radius: 10px;
     background: rgba(256, 256, 256, 0.2);
+    animation: fadeInZoom 0.5s ease forwards;
 }
 
-.testimonial-carousel .testimonial-item .testimonial-inner {
+@keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.testimonial-carousel .testimonial-inner {
     display: flex;
     justify-content: center;
 }
@@ -785,28 +1128,53 @@
     left: -25px;
     color: var(--bs-white);
     background: var(--bs-primary);
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .testimonial-carousel .owl-dots {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px; /* Espaciado inferior para separar los puntos de los botones */
 }
 
 .testimonial-carousel .owl-dots .owl-dot {
     width: 30px;
     height: 30px;
-    border-radius: 30px;
+    border-radius: 50%; /* Cambia a 50% para hacer un círculo perfecto */
     margin: 20px 10px 0 10px;
-    background: var(--bs-primary);
-    transition: 0.5s;
+    background: linear-gradient(45deg, #007bff, #eeff00); /* Gradiente de color */
+    transition: transform 0.3s, background 0.3s; /* Transiciones más suaves */
+    animation: pulse 1.5s infinite; /* Animación de pulso */
 }
 
 .testimonial-carousel .owl-dots .owl-dot.active {
-    width: 30px;
-    height: 30px;
-    border-radius: 30px;
-    background: var(--bs-light);
-    transition: 0.5s;
+    background: linear-gradient(45deg, #003cff, #eeeaea); /* Gradiente más vibrante para el círculo activo */
+    transform: scale(1.2); /* Aumenta el tamaño del círculo activo */
+}
+
+.testimonial-carousel .owl-dots .owl-dot:hover {
+    transform: scale(1.5); /* Aumenta el tamaño al pasar el ratón */
+    background: linear-gradient(45deg, #0161f1, #ffee00); /* Cambio de color en hover */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Efecto de pulso */
+    }
 }
 
 .testimonial-carousel .owl-dots .owl-dot span {
@@ -843,37 +1211,63 @@
 
 .testimonial-carousel .owl-nav {
     position: absolute;
-    bottom: -22px;
-    right: 50%;
-    transform: translateX(-50%);
-    margin-right: -210px;
+    bottom: -22px; /* Ajusta esta posición según sea necesario */
+    right: 10px; /* Mueve los botones hacia la derecha */
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px; /* Espaciado entre los botones */
 }
 
-.testimonial-carousel .owl-nav .owl-prev {
-    font-size: 50px;
-    margin-right: 80px;
-    color: var(--bs-white);
-    transition: 0.5s;
-}
-
+.testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
-    font-size: 50px;
-    margin-left: 80px;
+    font-size: 16px; /* Tamaño más pequeño */
+    margin: 10px; /* Elimina el margen para ajustarse a la separación */
     color: var(--bs-white);
     transition: 0.5s;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Aumentar más al pulsar */
+    }
 }
 
 .testimonial-carousel .owl-nav .owl-prev:hover,
 .testimonial-carousel .owl-nav .owl-next:hover {
     color: var(--bs-primary);
+    background-color: #007bff; /* Cambiar el color de fondo al pasar el cursor */
+    border-radius: 1%; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadir sombra */
+    animation: shadowPulse 1s infinite; /* Añadir una animación de sombra al pasar el ratón */
 }
+
+@keyframes shadowPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Más sombra al pasar el ratón */
+    }
+}
+
+.testimonial-header {
+    font-family: 'Georgia', serif; /* Cambia a la fuente que prefieras */
+    font-size: 2em; /* Ajusta el tamaño según sea necesario */
+    font-weight: bold; /* Usa negrita para destacar */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #eef114; /* Color del texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
 /*** Testimonial End ***/
 
-
-/*** Footer Start ***/
+/*** PIES DE PAGINA ***/
 .footer {
     background: var(--bs-dark);
 }
@@ -885,16 +1279,21 @@
 
 .footer .footer-item a {
     line-height: 35px;
-    color: var(--bs-body);
-    transition: 0.5s;
+    color: #ffffff; /* Color blanco por defecto */
+    position: relative; /* Para la animación del pseudo-elemento */
 }
 
-.footer .footer-item p {
-    line-height: 35px;
+/* Eliminar animación del texto */
+.footer .footer-item p,
+.footer .footer-item h4 {
+    opacity: 1; /* Totalmente visible */
+    transform: translateY(0); /* En su posición original */
 }
 
+/* Aplicar color y efecto de hover */
 .footer .footer-item a:hover {
-    color: var(--bs-primary);
+    color: #007bff; /* Cambia el color a azul al pasar el cursor */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra del texto para resaltar */
 }
 
 .footer .footer-item .footer-btn a,
@@ -919,7 +1318,27 @@
     align-items: center;
     line-height: 35px;
 }
-/*** Footer End ***/
+
+/* Ajustar el tamaño de la imagen */
+.footer .footer-item img {
+    max-width: 20%; /* Cambiar a 50% para hacer la imagen más pequeña */
+    height: auto; /* Mantener la proporción */
+    margin-bottom: 15px; /* Espaciado inferior */
+    transition: transform 0.10s ease; /* Transición suave para el zoom */
+}
+
+/* Color blanco para los horarios y el texto adicional */
+.footer .footer-item p,
+.footer .footer-item .opening-clock h6,
+.footer .footer-item .opening-clock p {
+    color: #ffffff; /* Color blanco */
+}
+
+/*** PIE DE PAGINA ***/
+
+
+
+
 
 /*** copyright Start ***/
 .copyright {
@@ -927,5 +1346,920 @@
     background: var(--bs-dark);
 }
 /*** copyright end ***/
+
+
+
+
+
+/* GENNERAL DE LOS PILARES */
+/* Animación para los títulos */
+.animated-title {
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(-20px); /* Desplazado hacia arriba */
+    animation: fadeInUp 0.6s forwards; /* Llamar a la animación */
+}
+
+@keyframes fadeInUp {
+    6% {
+        opacity: 0; /* Inicialmente invisible */
+        transform: translateY(-20px); /* Desplazado hacia arriba */
+    }
+    100% {
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Regresa a su posición original */
+    }
+}
+
+/* Aplicar animación con diferentes retrasos */
+.animated-title:nth-child(1) {
+    animation-delay: 0.2s; /* Retraso para el primer título */
+}
+
+.animated-title:nth-child(2) {
+    animation-delay: 0.4s; /* Retraso para el segundo título */
+}
+
+/* Animación para la imagen de fondo */
+@keyframes bgAnimation {
+    0% { background-position: center; } /* Comienza en la posición original */
+    25% { background-position: center; } /* Se queda en la posición original */
+    50% { background-position: center -100px; } /* Sube a -50px */
+    100% { background-position: center; } /* Regresa a la posición original */
+}
+
+
+.container-fluid {
+    animation: bgAnimation 6s ease-in-out infinite; /* Subir y bajar */
+}
+
+.hover-effect {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco con menor opacidad */
+    transition: transform 0.3s ease-in-out, color 0.5s ease-in-out; /* Transiciones de transformación y color */
+    border-radius: 15px; /* Esquinas redondeadas */
+    color: #000; /* Color inicial del texto */
+}
+
+/* Efecto de medio círculo en la esquina superior derecha */
+.hover-effect::after {
+    content: '';
+    position: absolute;
+    width: 100px; /* Ancho del medio círculo */
+    height: 100px; /* Alto del medio círculo */
+    background: transparent; /* Fondo transparente */
+    border-radius: 50%; /* Hacerlo circular */
+    top: -50px; /* Ubicarlo en la parte superior */
+    right: -30px; /* Ubicarlo en la esquina derecha */
+    z-index: 1; /* Asegurarse de que esté por encima del fondo */
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0); /* Comienza escalado a 0 */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transición suave */
+}
+
+.hover-effect:hover::after {
+    background: rgba(255, 255, 0, 0.8); /* Llenar con color amarillo */
+    opacity: 1; /* Hacerlo visible */
+    transform: scale(1); /* Escalar a su tamaño original */
+}
+
+/* Mantener el medio círculo visible cuando el mouse está sobre el elemento */
+.hover-effect.active::after {
+    opacity: 1; /* Asegurarse de que sea visible */
+    transform: scale(1); /* Mantener el tamaño original */
+}
+
+/* Cambiar color del texto al pasar el cursor */
+.hover-effect:hover {
+    color: rgb(255, 255, 255); /* Cambia a color azul */
+}
+
+.hover-effect:hover .text-secondary {
+    color: rgb(206, 193, 160); /* Cambia el color del texto secundario a azul */
+}
+
+/* Colores de los íconos al pasar el cursor */
+.leadership:hover .icon {
+    color: #0415ff; /* Color rojo claro del ícono "Liderazgo" */
+}
+
+.languages:hover .icon {
+    color: #fafafa; /* Color dorado del ícono "Idiomas" */
+}
+
+.technology:hover .icon {
+    color: #0327f3; /* Color verde del ícono "Tecnología" */
+}
+
+.entrepreneurship:hover .icon {
+    color: #5bc0de; /* Color azul claro del ícono "Emprendimiento" */
+}
+
+/* Cambios en el color del texto en hover */
+.leadership:hover .text-primary,
+.technology:hover .text-primary {
+    color: #fff; /* Color del texto en hover */
+}
+
+.languages:hover .text-primary,
+.entrepreneurship:hover .text-primary {
+    color: #fff; /* Color del texto en hover */
+}
+
+.icon-container {
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.leadership:hover .icon-container i,
+.technology:hover .icon-container i {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px #000000; /* Sombra del texto para resaltar el ícono */
+}
+
+.languages:hover .icon-container i,
+.entrepreneurship:hover .icon-container i {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(82, 80, 73, 0.8); /* Sombra del texto para resaltar el ícono */
+}
+
+.icon {
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+
+
+/* vistas */
+.counter-section {
+    background-color: transparent; /* Completamente transparente */
+    padding: 50px 0; /* Espaciado superior e inferior reducido */
+    text-align: center; /* Centrar el texto de la sección */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
+}
+
+
+.counter-container {
+    display: flex;
+    justify-content: center; /* Centrar elementos horizontalmente */
+    align-items:self-end; /* Centrar elementos verticalmente */
+    flex-wrap: wrap; /* Permitir el ajuste de los contenedores */
+    margin: 1px 0; /* Espacio superior e inferior reducido */
+}
+
+.counter-box {
+    flex: 0 0 10px; /* Establecer el ancho de los cuadros */
+    max-width: 120px; /* Ancho máximo para los contenedores */
+    margin: 5px; /* Espaciado alrededor de los contenedores reducido */
+    border-radius: 10px; /* Esquinas redondeadas */
+    overflow: hidden; /* Evitar el desbordamiento */
+    position: relative; /* Posición para el icono */
+    background: linear-gradient(135deg, #007bff, #6610f2); /* Fondo degradado */
+    color: #ffffff; /* Color del texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    display: flex; /* Hacer que el contenido se alinee verticalmente */
+    flex-direction: column; /* Alinear contenido en columna */
+    justify-content: center; /* Centrar contenido verticalmente */
+    text-align: center; /* Centrar texto */
+}
+
+
+.counter-icon {
+    font-size: 1.8rem; /* Tamaño de icono ajustado para un diseño más pequeño */
+    margin-top: 5px; /* Espacio superior para el icono */
+   
+}
+
+
+.counter-value {
+    font-size: 1.4rem; /* Tamaño de fuente más pequeño para el valor */
+    font-weight: bold; /* Peso de fuente más audaz */
+    margin: 1px 0; /* Espacio superior e inferior */
+}
+
+.counter-description {
+    font-size: 0.8rem; /* Tamaño de fuente más pequeño para la descripción */
+    margin-bottom: 5px; /* Espacio inferior reducido */
+}
+
+
+/* vitas */
+
+
+
+
+
+  /* corporaciones */
+  .heading-primary {
+    font-size: 2.5rem;
+    color: #007bff; /* Main color for the text */
+    margin-bottom: 1rem;
+    font-weight: bold; /* Make the font weight bold */
+    position: relative; /* Needed for the shadow */
+    animation: fadeIn 1s ease; /* Fade-in effect */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Downward shadow effect */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start invisible */
+        transform: translateY(-20px); /* Start slightly above */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+.modern-carousel {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.corporation-item {
+    margin: 15px;
+    width: 120px; /* Set a slightly larger width */
+}
+
+.corporation-logo-container {
+    text-align: center;
+    border: 2px solid #007bff; /* Border color */
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px; /* Add padding for spacing */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transform transition */
+    width: 140px; /* Set a fixed width for the container */
+    height: 140px; /* Set a fixed height for the container */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: relative; /* Relative positioning for absolute elements */
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(255, 255, 255, 0)); /* Background gradient */
+}
+
+.corporation-logo-container:before {
+    content: '';
+    position: absolute;
+    top: -15px; /* Adjust as needed */
+    left: 50%;
+    width: 160%; /* Width of the semi-circle */
+    height: 100%; /* Full height of the container */
+    border-radius: 50%; /* Half-circle effect */
+    background-color: rgba(0, 123, 255, 0.5); /* Color for the semi-circle */
+    transform: translateX(-50%) translateY(-100%); /* Center and position above */
+    transition: transform 0.4s ease, background-color 0.4s ease; /* Animation for semi-circle */
+    z-index: 0; /* Send it to the back */
+}
+
+.corporation-logo-container:hover:before {
+    transform: translateX(-50%) translateY(0); /* Move semi-circle down on hover */
+    background-color: rgba(0, 123, 255, 0.7); /* Change color on hover */
+}
+
+.corporation-logo-container:hover {
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.8); /* Add shadow on hover */
+    animation: float 0.5s ease-in-out forwards; /* Float animation on hover */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); /* Initial position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up slightly */
+    }
+    100% {
+        transform: translateY(0); /* Return to initial position */
+    }
+}
+
+.corporation-logo {
+    max-width: 80%; /* Adjust max-width to control logo size */
+    max-height: 80%; /* Adjust max-height to maintain aspect ratio */
+    height: auto; /* Ensure height adjusts automatically */
+    position: relative; /* Relative positioning for z-index */
+    z-index: 1; /* Bring logos above the semi-circle */
+    transition: transform 0.3s ease; /* Transition for logo scaling */
+}
+
+.corporation-logo-container:hover .corporation-logo {
+    transform: scale(1.1); /* Slightly enlarge the logo on hover */
+}
+
+.corporation-name {
+    display: block;
+    margin-top: 5px; /* Reduced margin for smaller spacing */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem; /* Adjust font size for names */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Fade-in effect */
+    position: absolute; /* Positioning for centering */
+    bottom: 15px; /* Position above the bottom of the container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(15px); /* Center and initially position below */
+}
+
+.corporation-logo-container:hover .corporation-name {
+    opacity: 1; /* Fade in the name on hover */
+    transform: translateX(-50%) translateY(0); /* Move to the original position */
+}
+
+
+
+ /* corporaciones */
+
+
+
+
+
+
+/* nuestras sedes */
+ /* Animación de flotación continua */
+
+
+/* Animación de borde sombra */
+@keyframes shadow {
+    0% {
+        box-shadow: 0 4px 10px rgba(248, 246, 246, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 20px rgba(0, 123, 206, 0.4);
+    }
+    100% {
+        box-shadow: 0 4px 10px rgba(3, 133, 255, 0.2);
+    }
+}
+
+/* Animaciones para el título */
+@keyframes textBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes textColorChange {
+    0% {
+        color: #056bd1;
+    }
+    50% {
+        color: #f39c12;
+    }
+    100% {
+        color: #056bd1;
+    }
+}
+
+@keyframes lineAnimation {
+    0%, 100% {
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.sedes-container {
+    position: relative;
+    padding: 2rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.sedes-title {
+    font-size: 3.5rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Letra más gruesa */
+    margin: 1.5rem 0;
+    background: linear-gradient(45deg, #056bd1, #ffffff); /* Degradado */
+    background-size: 200% 200%; /* Tamaño del fondo para la animación */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente */
+    animation: lineAnimation 3s ease infinite; /* Animación de líneas */
+    text-align: center; /* Centra el texto */
+    text-shadow: 2px 2px 10px hsla(204, 98%, 48%, 0.8), 
+                 0 0 25px hsla(204, 98%, 48%, 0.8), 
+                 0 0 50px rgba(7, 7, 7, 0.8); /* Sombra más llamativa */
+    position: relative; /* Para la línea de subrayado */
+}
+
+/* Estilo para la línea de subrayado */
+.sedes-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px; /* Ajusta la posición de la línea */
+    height: 5px; /* Altura de la línea */
+    background: linear-gradient(45deg, #056bd1, #fffffe); /* Degradado de la línea */
+    animation: lineAnimation 3s ease infinite; /* Animación de la línea */
+    z-index: -1; /* Envía la línea detrás del texto */
+}
+
+.sedes-row {
+    display: flex; /* Cambiar a flex para diseño horizontal */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    align-items: center; /* Centra las tarjetas verticalmente */
+    gap: 1.5rem; /* Espacio entre las tarjetas */
+}
+
+.sedes-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    text-align: center; /* Alinear texto al centro */
+    width: 250px; /* Ancho fijo para todas las tarjetas */
+    height: 350px; /* Altura fija para todas las tarjetas */
+    animation: shadow 2s ease-in-out infinite; /* Sombra animada */
+}
+
+/* Animación de desplazamiento en el eje Y */
+.sedes-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Eleva y escala al pasar el mouse */
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.5); /* Sombra más intensa al pasar el mouse */
+}
+
+.sedes-image {
+    width: 100%;
+    height: 200px; /* Tamaño fijo para todas las imágenes */
+    object-fit: cover; /* Ajusta la imagen para que ocupe el contenedor */
+    transition: opacity 0.3s;
+    border-radius: 15px 15px 0 0; /* Bordes redondeados para la parte superior */
+    box-shadow: 0 4px 10px rgba(0, 59, 221, 0.8); /* Sombra azul */
+}
+
+.sedes-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sedes-card:hover .sedes-info {
+    opacity: 1;
+}
+
+.sedes-location {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #cfcaca;
+}
+
+.sedes-card {
+    position: relative;
+    overflow: hidden; /* Asegúrate de ocultar el contenido que se desborda */
+    border-radius: 15px; /* Redondea las esquinas de la tarjeta */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Agrega sombra a la tarjeta */
+    transition: transform 0.5s ease; /* Transición para la tarjeta */
+}
+
+.sedes-info::before {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Posiciona en la parte inferior */
+    right: 0; /* Posiciona en la parte derecha */
+    height: 50%; /* Cambia a la mitad de la tarjeta */
+    width: 100%; /* Ancho completo para el medio círculo */
+    background: rgba(52, 152, 219, 0.7); /* Color de llenado */
+    z-index: -1; /* Coloca detrás del contenido */
+    border-radius: 50% 0 0 0; /* Crea un medio círculo en la parte inferior derecha */
+    transform: translateY(100%); /* Comienza fuera de la vista */
+    opacity: 0; /* Comienza invisible */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Animación suave */
+}
+
+.sedes-card:hover .sedes-info::before {
+    transform: translateY(0); /* Mueve el medio círculo hacia arriba */
+    opacity: 1; /* Hace visible el medio círculo */
+}
+
+.sedes-card:hover {
+    transform: scale(1.05); /* Escala la tarjeta ligeramente al hacer hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada en hover */
+}
+
+/* Efecto adicional para el contenido */
+.sedes-card:hover .sedes-info {
+    transform: scale(1.05); /* Escala el contenido ligeramente */
+    transition: transform 0.5s ease; /* Animación suave */
+}
+
+
+
+.sedes-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #d6ee02;
+    color: rgb(5, 5, 5);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.sedes-btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+
+
+
+/* acerca de cca */
+.about {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/acercacca.png');
+    background-size: cover;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.mission-card, .vision-card {
+    transition: transform 0.3s ease;
+}
+
+.mission-card:hover, .vision-card:hover {
+    transform: translateY(-10px);
+}
+
+.counter-item {
+    transition: transform 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .search-icon {
+    opacity: 1;
+}
+.adaptable-image {
+    width: 100%; /* Hace que la imagen sea adaptable al contenedor */
+    max-width: 400px; /* Ajusta el tamaño máximo según tu diseño */
+}
+
+
+
+.vertical-text {
+    writing-mode: vertical-rl; /* Cambia el modo de escritura a vertical */
+    transform: rotate(180deg); /* Rota el texto para que esté orientado correctamente */
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto */
+}
+
+.experience-text {
+    font-size: 1.5rem; /* Tamaño de letra */
+    transition: color 0.3s ease; /* Transición para el color */
+}
+
+.overlay:hover .experience-text {
+    color: rgb(243, 243, 243); /* Cambia el color del texto al pasar el mouse */
+}
+.mission-vision-section {
+    background-color: #A2DFF7; /* Combra azul claro */
+    padding: 40px; /* Espaciado alrededor de la sección */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra alrededor de la sección */
+}
+
+.mission-vision-title {
+    font-family: 'TuFuenteDeseada', sans-serif; /* Cambia 'TuFuenteDeseada' por la fuente que desees usar */
+    font-size: 2.5em; /* Tamaño del título */
+    font-weight: bold; /* Negrita para el título */
+    color: #ffffff; /* Color blanco */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para el título */
+    margin-bottom: 20px; /* Espacio inferior */
+    animation: slideIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Estilo para el texto de la misión y visión */
+.mission-vision-text {
+    font-family: 'Arial', sans-serif; /* Fuente para el texto */
+    font-size: 1.2em; /* Tamaño del texto */
+    color: #333333; /* Color gris oscuro */
+    max-width: 800px; /* Ancho máximo */
+    margin: 0 auto; /* Centra el texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Define las animaciones */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px); /* Comienza desde arriba */
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1; /* Termina visible */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+    }
+}
+
+.mission-vision-title {
+    font-family: 'TuFuenteDeseada', sans-serif; /* Cambia 'TuFuenteDeseada' por la fuente que desees usar */
+    font-size: 3em; /* Tamaño del título (aumentado) */
+    font-weight: bold; /* Negrita para el título */
+    background: linear-gradient(90deg, #A2DFF7, #FFD700); /* Degradado azul claro a dorado */
+    -webkit-background-clip: text; /* Aplica el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hace que el color del texto sea transparente para mostrar el degradado */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para el título */
+    margin-bottom: 20px; /* Espacio inferior */
+    animation: slideIn 1s ease-in-out; /* Animación de entrada */
+}
+
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.mission-vision-title {
+    font-family: 'Palace Script MT', cursive; /* Aplica la fuente al título */
+    font-size: 10rem; /* Tamaño del título (aumentado) */
+    font-weight: bold; /* Negrita para el título */
+    background: linear-gradient(90deg, #A2DFF7, #FFD700); /* Degradado azul claro a dorado */
+    -webkit-background-clip: text; /* Aplica el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hace que el color del texto sea transparente para mostrar el degradado */
+    text-shadow: 2px 2px 5px rgba(3, 62, 189, 0.5); /* Sombra para el título */
+    margin-bottom: 20px; /* Espacio inferior */
+    animation: slideIn 1s ease-in-out, float 3s ease-in-out infinite; /* Animación de entrada y flotación */
+}
+
+/* Animación de flotación */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0); /* Posición original */
+    }
+    50% {
+        transform: translateY(-10px); /* Flota hacia arriba */
+    }
+}
+
+
+/* Estilo para el texto de la misión y visión */
+.mission-vision-text {
+    font-family: 'Arial', sans-serif; /* Fuente para el texto */
+    font-size: 1.5em; /* Tamaño del texto (aumentado) */
+    color: #A2DFF7; /* Color combra azul claro */
+    max-width: 800px; /* Ancho máximo */
+    margin: 0 auto; /* Centra el texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+/* Define las animaciones */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px); /* Comienza desde arriba */
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1; /* Termina visible */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+    }
+}
+
+.card {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados más pequeños */
+    padding: 15px; /* Espaciado interno reducido */
+    position: relative; /* Para el efecto de sombra */
+    overflow: hidden; /* Oculta el desbordamiento */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    max-width: 400px; /* Ancho máximo para las tarjetas */
+    margin: 0 auto; /* Centra las tarjetas */
+}
+
+.mission-card {
+    background: linear-gradient(135deg, #A2DFF7, #FFD700); /* Degradado animado */
+    color: #fff; /* Color de texto blanco */
+    box-shadow: 0 4px 15px rgba(255, 246, 246, 0.1); /* Sombra sutil */
+}
+
+.vision-card {
+    background: linear-gradient(135deg, #4e4e4e, #FFD700); /* Degradado animado */
+    color: #fff; /* Color de texto blanco */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levanta la tarjeta al pasar el ratón */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.card i {
+    color: #ffd700; /* Color dorado del icono */
+    transition: transform 0.3s; /* Transición de movimiento del icono */
+}
+
+.card:hover i {
+    transform: scale(1.1); /* Aumenta el tamaño del icono al pasar el ratón */
+}
+
+h4 {
+    font-family: 'TuFuenteDeseada', sans-serif; /* Cambia 'TuFuenteDeseada' por la fuente que desees usar */
+    font-size: 1.5em; /* Tamaño del título reducido */
+    margin: 10px 0; /* Espacio superior e inferior */
+}
+
+p {
+    font-family: 'Arial', sans-serif; /* Fuente para el texto */
+    font-size: 1em; /* Tamaño del texto reducido */
+    color: #ffffff; /* Color blanco para el texto */
+    line-height: 1.4; /* Espaciado entre líneas */
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px; /* Margen inferior en móviles */
+    }
+}
+
+
+.text-container {
+    position: relative; /* Para el posicionamiento de la flecha */
+}
+
+.mission-vision-title {
+    font-family: 'TuFuenteDeseada', sans-serif; /* Cambia 'TuFuenteDeseada' por la fuente que desees usar */
+    font-size: 2.5em; /* Tamaño del título */
+    margin-bottom: 20px; /* Espacio inferior */
+    color: #ffffff; /* Color blanco */
+    text-shadow: 2px 2px 5px rgba(3, 55, 167, 0.5); /* Sombra para el título */
+}
+
+.mission-vision-description {
+    font-family: 'Arial', sans-serif; /* Fuente para el texto */
+    font-size: 1.2em; /* Tamaño del texto */
+    color: #f0f0f0; /* Color gris claro */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea la flecha a la izquierda */
+}
+
+.arrow-icon {
+    color: #FFD700; /* Color dorado de la flecha */
+    transition: transform 0.3s; /* Transición para el efecto hover */
+}
+
+.arrow-container:hover .arrow-icon {
+    transform: translateX(5px); /* Mueve la flecha a la derecha al pasar el ratón */
+}
+
+.mission-card, .vision-card {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    position: relative; /* Para el efecto de sombra */
+    overflow: hidden; /* Oculta el desbordamiento */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+.mission-card {
+    background: linear-gradient(135deg, #013b52, #609add); /* Degradado animado */
+    color: #fff; /* Color de texto blanco */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.vision-card {
+    background: linear-gradient(135deg, #634a01, #cefc02); /* Degradado animado */
+    color: #fff; /* Color de texto blanco */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto al pasar el ratón */
+.row:hover .mission-card,
+.row:hover .vision-card {
+    transform: translateY(-10px); /* Eleva las tarjetas */
+    box-shadow: 0 8px 20px rgba(3, 191, 248, 0.2); /* Aumenta la sombra */
+}
+
+.row:hover {
+    transform: translateY(-20px); /* Eleva el contenedor */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levanta la tarjeta al pasar el ratón */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.card i {
+    color: #ffffff; /* Color del icono */
+    transition: transform 0.3s; /* Transición de movimiento del icono */
+}
+
+.card i:hover {
+    animation: rotate 0.5s ease-in-out; /* Rotación al pasar el ratón */
+}
+
+/* Animación de rotación */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg); /* Posición original */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotación completa */
+    }
+}
+
+
+.card:hover i {
+    transform: scale(1.1); /* Aumenta el tamaño del icono al pasar el ratón */
+}
+
+h4 {
+    font-family: 'TuFuenteDeseada', sans-serif; /* Cambia 'TuFuenteDeseada' por la fuente que desees usar */
+    font-size: 1.5em; /* Tamaño del título */
+    margin: 10px 0; /* Espacio superior e inferior */
+}
+
+p {
+    font-family: 'Arial', sans-serif; /* Fuente para el texto */
+    font-size: 1em; /* Tamaño del texto */
+    color: #fcfcfc; /* Color blanco para el texto */
+    line-height: 1.4; /* Espaciado entre líneas */
+}
+.arrow-icon {
+    color: #0548ff; /* Color dorado de la flecha */
+    transition: transform 0.3s; /* Transición para el efecto hover */
+    animation: moveRight 2s infinite; /* Cambia a 'moveRight' para la nueva animación */
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(0); /* Posición original */
+    }
+    50% {
+        transform: translateX(500px); /* Desplaza a la derecha (20px ≈ 2cm) */
+    }
+    100% {
+        transform: translateX(0); /* Regresa a la posición original */
+    }
+}
+
 
 

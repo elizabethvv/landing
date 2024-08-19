@@ -1,0 +1,79 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://www.transparenttextures.com/patterns/asfalt.png'), linear-gradient(to right, #e1e3e6, #c4d0d4);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f4f8;
+    overflow: hidden; /* Prevent scrollbars from showing */
+}
+
+.temario-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.temario-section ul li {
+    margin-bottom: 15px;
+    font-size: 18px;
+    position: relative;
+    padding-left: 40px; /* Adjust padding for space between icon and text */
+    transition: color 0.3s, transform 0.3s;
+    line-height: 1.6;
+}
+
+.temario-section ul li i {
+    color: #1e3c72; /* Icon color */
+    margin-right: 10px; /* Space between icon and text */
+    position: absolute;
+    left: 0; /* Position the icon to the left */
+    transition: transform 0.3s;
+}
+
+.temario-section ul li:hover {
+    color: #2a5298;
+    transform: scale(1.05);
+}
+
+.temario-section h2 {
+    margin-bottom: 15px; /* Add margin below the heading */
+    position: relative;
+}
+
+/* Optional: Add more styles for hover effect on the icon */
+.temario-section ul li:hover i {
+    transform: scale(1.2); /* Scale icon on hover */
+}
+.icon-text {
+    display: inline-block; /* Allow animation on the whole text */
+    overflow: hidden; /* Hide overflow text */
+    white-space: nowrap; /* Prevent line breaks */
+    animation: typing 0.5s steps(20, end) forwards; /* Typing effect */
+    opacity: 0; /* Start invisible */
+    animation-delay: 0.5s; /* Delay before typing */
+    animation-fill-mode: forwards; /* Maintain final state */
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* Start with no width */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        width: 100%; /* End with full width */
+        opacity: 1; /* Fade in to visible */
+    }
+}
+
+/* Increase icon size for better visibility */
+.temario-section ul li i {
+    font-size: 24px; /* Increase icon size */
+    color: #1e3c72; /* Icon color */
+    margin-right: 10px; /* Space between icon and text */
+    transition: transform 0.3s;
+}
+
+/* Optional: Additional hover effects */
+.temario-section ul li:hover i {
+    transform: scale(1.2); /* Scale icon on hover */
+}

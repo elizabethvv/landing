@@ -19,12 +19,12 @@
     // Sticky Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
-            $('.sticky-top').addClass('shadow-sm').css('top', '0px');
+            $('.nav-bar').addClass('shadow-sm').css('background-color', 'white');
         } else {
-            $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
+            $('.nav-bar').removeClass('shadow-sm').css('background-color', 'transparent');
         }
     });
-
+    
 
     // Hero Header carousel
     $(".header-carousel").owlCarousel({
@@ -135,4 +135,62 @@
 
 
 })(jQuery);
+document.getElementById('start-button').addEventListener('click', function() {
+    const teamIcons = document.querySelector('.team-icon');
+    teamIcons.classList.toggle('show');
+    
+    // Añadir animación al botón
+    this.classList.toggle('animate');
+});
+
+// Añadir animación CSS cuando se hace clic en el botón
+document.querySelector('#start-button').addEventListener('mouseover', function() {
+    this.style.backgroundColor = '#007bff';
+    this.querySelector('i').style.color = '#fff';
+});
+
+document.querySelector('#start-button').addEventListener('mouseout', function() {
+    this.style.backgroundColor = '#0056b3';
+    this.querySelector('i').style.color = '#fff';
+});
+
+  
+
+
+    // ANIMACION DE LOS PILARES// Selecciona todos los contenedores con la clase 'hover-effect'
+
+    // Selecciona todos los contenedores con la clase 'hover-effect'
+    document.addEventListener('DOMContentLoaded', () => {
+        const hoverEffect = document.querySelector('.hover-effect');
+    
+        hoverEffect.addEventListener('mouseenter', () => {
+            hoverEffect.classList.add('active');
+        });
+    
+        hoverEffect.addEventListener('mouseleave', () => {
+            hoverEffect.classList.remove('active');
+        });
+    });
+    
+
+
+// animacionnde letras 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const title = document.querySelector('.animate-title');
+    const text = title.textContent;
+    title.textContent = '';
+
+    // Crear un span para cada letra
+    for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = text[i];
+        span.classList.add('letter');
+        span.style.animationDelay = `${i * 0.1}s`; // Retraso para cada letra
+        title.appendChild(span);
+    }
+});
+
+
+
 
